@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  invoice_id: 
+  online_order: false
+  user_id: 
+  delivered: false
+  total_bill: 
+  production_cost: 
+
+two:
+  invoice_id: 
+  online_order: false
+  user_id: 
+  delivered: false
+  total_bill: 
+  production_cost: 

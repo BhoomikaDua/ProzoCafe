@@ -11,6 +11,23 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="prozo-navigation">
+      <span class="prozo-logo-holder">
+          <span class="prozo-logo">Prozo</span>
+          <span class="prozo-greeting">Greetings, Guest</span>
+      </span>
+
+      <span class="prozo-links">
+          <span class="prozo-link">Menu</span>
+          <span class="prozo-link">Orders</span>
+          <span class="prozo-link">Report</span>
+          <span class="prozo-link">Cart</span>
+          <span class="prozo-link">Sign Out</span>
+      </span>
+    </nav>
+
+    <div class="prozo-main-wrapper">
+        <%= yield %>
+    </div>
   </body>
 </html>
