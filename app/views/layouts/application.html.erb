@@ -22,7 +22,7 @@
           <%= link_to "Orders", {:action=>"index", :controller=>"invoices"}, class:"prozo-link" %>
           <span class="prozo-link">Report</span>
           <%= link_to "Cart", cart_path, class:"prozo-link" %>
-          <%= link_to "Logout", {:action=>"destroy", :controller=>"sessions"}, class:"prozo-link" %>
+          <%= link_to "Logout", destroy_session_path ,method: "delete", class:"prozo-link" %>
       </span>
     </nav>
 
