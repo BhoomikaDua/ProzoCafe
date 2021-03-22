@@ -1,0 +1,11 @@
+<div class="prozo-menu-wrapper">
+  <span class="prozo-menu-buttons"><%= link_to "Add Category", {:action=>"new", :controller=>"category"}%> <%= link_to "Add Menu Item", {:action=>"new", :controller=>"menuitem"}%></span>
+  <h1 class="menu-category">Category Name<h1>
+  <div class="menu-row">
+    <span>Lasagna</span>
+    <span class="menu-item-description">This classic lasagna is made with an easy meat sauce as the base. Layer the sauce with noodles and cheese, then bake until bubbly! This is great for feeding a big family, and freezes well, too.</span>
+    <span>Rs. 299</span>
+    <span class="menu-add-to-cart"><%= link_to "ADD TO CART", {:action=>"index", :controller=>"category"}, class:"add-to-cart-button" %></span>
+  </div>
+  <p class="line-break margin-top-10"></p>
+</div>

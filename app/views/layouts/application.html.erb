@@ -18,11 +18,11 @@
       </span>
 
       <span class="prozo-links">
-          <span class="prozo-link">Menu</span>
-          <span class="prozo-link">Orders</span>
+          <%= link_to "Menu", {:action=>"index", :controller=>"category"}, class:"prozo-link" %>
+          <%= link_to "Orders", {:action=>"index", :controller=>"invoice"}, class:"prozo-link" %>
           <span class="prozo-link">Report</span>
-          <span class="prozo-link">Cart</span>
-          <span class="prozo-link">Sign Out</span>
+          <%= link_to "Cart", cart_path, class:"prozo-link" %>
+          <%= link_to "Logout", {:action=>"destroy", :controller=>"sessions"}, class:"prozo-link" %>
       </span>
     </nav>
 

@@ -1,0 +1,56 @@
+.users-new{
+  margin:0 auto;
+  width:80%;
+  text-align:center;
+  font-family:'Oswald', sans-serif;
+}
+.user-form-title{
+  font-size:50px;
+  text-transform:uppercase;
+}
+.user-form-input-section{
+  width:400px;
+  margin:20px auto;
+}
+.user-form-input-label{
+  font-size:22px;
+  margin:10px 0;
+}
+.user-form-input-section input{
+  height:50px;
+  width:100%;
+  border-radius:10px;
+  font-size:20px;
+
+}
+.user-form-input-section select{
+  height:50px;
+  width:100%;
+  border-radius:10px;
+  font-size:20px;
+  padding:0 20px;
+
+}
+.user-form-submit-button{
+  background:#19d219;
+  border:none;
+  padding:10px 100px;
+  margin:10px 0;
+  border-radius:10px;
+  font-size:20px;
+  border:1px #186918 solid;
+}
+.user-form-submit-button:hover{
+  background:#186918;
+  color:#fff;
+  cursor:pointer;
+}
+.user-form-disabled{
+  pointer-events: none;
+}
+.user-form-text-area{
+  width:100%;
+  border-radius:10px;
+  height:100px;
+  border:2px solid #000;
+}

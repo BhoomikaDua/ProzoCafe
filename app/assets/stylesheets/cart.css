@@ -1,0 +1,34 @@
+.prozo-cart-wrapper{
+  margin:0 auto;
+  width:50%;
+  text-align:center;
+  font-family:'Oswald', sans-serif;
+}
+.prozo-cart-wrapper {
+  background: #FFFFFF;
+  border: 1px solid #E6E6E6;
+  box-sizing: border-box;
+  border-radius: 14px;
+  margin:20px auto;
+  padding:25px
+}
+.prozo-cart-wrapper .prozo-invoice-info{
+  width:100%;
+  justify-content:space-around;
+  margin-bottom:20px
+}
+.order-button{
+  width:100%;
+  background:#19d219;
+  margin-top:20px;
+  display:block;
+  padding:20px 0;
+  border-radius:40px;
+  text-transform:uppercase;
+
+}
+.order-button:hover{
+background:#186918;
+color:#fff;
+cursor:pointer;
+}
