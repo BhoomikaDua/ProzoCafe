@@ -26,6 +26,12 @@
       </span>
     </nav>
 
+    <% if(flash[:error]) %>
+        <div class="prozo-flash-message-container">
+          <%= flash[:error] %>
+        </div>
+    <% end %>
+
     <div class="prozo-main-wrapper">
         <%= yield %>
     </div>

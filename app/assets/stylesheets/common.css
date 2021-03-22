@@ -5,6 +5,21 @@ body{
   margin: 0 25px;
 }
 
+.prozo-flash-message-container{
+  background: #f1ebeb;
+  font-family: 'Open Sans', sans-serif;
+  border: 1px solid red;
+  border-radius: 14px;
+  height:100px;
+  width:700px;
+  margin:20px auto;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:red;
+  font-size:20px
+}
+
 .prozo-navigation{
   background:#000000;
   height:100px;
