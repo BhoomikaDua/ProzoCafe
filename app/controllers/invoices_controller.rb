@@ -1,4 +1,4 @@
-class InvoiceController < ApplicationController
+class InvoicesController < ApplicationController
   def index
     render "index"
   end
