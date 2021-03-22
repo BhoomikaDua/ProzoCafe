@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_20_143228) do
+ActiveRecord::Schema.define(version: 2021_03_22_104325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.bigint "category_id"
     t.string "name"
     t.boolean "is_active"
     t.datetime "created_on"
@@ -25,7 +24,6 @@ ActiveRecord::Schema.define(version: 2021_03_20_143228) do
   end
 
   create_table "invoices", force: :cascade do |t|
-    t.bigint "invoice_id"
     t.boolean "online_order"
     t.bigint "user_id"
     t.boolean "delivered"
@@ -37,7 +35,6 @@ ActiveRecord::Schema.define(version: 2021_03_20_143228) do
   end
 
   create_table "menu_items", force: :cascade do |t|
-    t.bigint "item_id"
     t.string "name"
     t.text "description"
     t.string "category_id"
@@ -50,7 +47,6 @@ ActiveRecord::Schema.define(version: 2021_03_20_143228) do
   end
 
   create_table "order_items", force: :cascade do |t|
-    t.bigint "item_id"
     t.bigint "invoice_id"
     t.bigint "menu_item_id"
     t.bigint "menu_item_price"
@@ -61,7 +57,6 @@ ActiveRecord::Schema.define(version: 2021_03_20_143228) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.bigint "user_id"
     t.string "role"
     t.string "name"
     t.string "email"
