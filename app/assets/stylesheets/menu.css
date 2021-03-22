@@ -47,3 +47,7 @@
   background:#186918;
   color:#fff;
 }
+.switch.category-switch:before{
+  content: 'CATEGORY STATUS';
+  margin-left: -10px;
+}
