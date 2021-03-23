@@ -18,7 +18,15 @@ class CategoriesController < ApplicationController
       flash[:error] = "The Details Filled Are Invalid, Please Try Again!"
       redirect_to new_category_path
     end
+  end
 
+  def update
+    id = params[:id]
+    is_active = params[:is_active]
+    category = Category.find(id)
+    category.is_active = !!is_active
+    category.save
 
+    redirect_to categories_path
   end
 end

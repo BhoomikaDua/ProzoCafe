@@ -1,0 +1,21 @@
+<h1 class="menu-category"><%= category_name %></h1>
+<label class="switch category-switch">
+  <%= form_with(url: "categories/#{category_id}", method: "put") do %>
+      <input
+        type="checkbox"
+        <%= category_active.to_s %>
+        name="is_active"
+        class= "prozo-checkbox"
+        onclick="this.form.submit()"
+      >
+      <span class="slider round"></span>
+  <% end %>
+</label>
+
+<% MenuItem.all.order("id").where("category_id = ?", category_id.to_s).map do |item| %>
+    <%= render partial: "menu-section", locals: {
+      item: item
+    } %>
+  <% end %>
+
+<p class="line-break margin-top-10"></p>

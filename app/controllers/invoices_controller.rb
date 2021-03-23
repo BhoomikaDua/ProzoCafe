@@ -1,5 +1,4 @@
 class InvoicesController < ApplicationController
-  belongs_to: user
 
   def index
     render "index"
@@ -7,5 +6,9 @@ class InvoicesController < ApplicationController
 
   def cart
     render "cart"
+  end
+
+  def create
+    if()
   end
 end
