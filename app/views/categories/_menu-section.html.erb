@@ -2,5 +2,5 @@
   <span><%= item.name %></span>
   <span class="menu-item-description"><%= item.description %></span>
   <span><%= item.price %></span>
-  <span class="menu-add-to-cart"><%= link_to "ADD TO CART", {:action=>"index", :controller=>"categories"}, class:"add-to-cart-button" %></span>
+  <span class="menu-add-to-cart"><%= link_to "ADD TO CART", {:action=>"create", :controller=>"invoices", :id=>item.id},method: "post", class:"add-to-cart-button" %></span>
 </div>

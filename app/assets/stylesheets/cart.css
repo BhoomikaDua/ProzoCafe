@@ -25,7 +25,8 @@
   padding:20px 0;
   border-radius:40px;
   text-transform:uppercase;
-
+  text-decoration: none;
+  color: #fff;
 }
 .order-button:hover{
 background:#186918;

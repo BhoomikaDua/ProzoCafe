@@ -1,20 +1,25 @@
 <div class="prozo-cart-wrapper">
   <h1 class="user-form-title">Cart<h1>
-  <div class="prozo-invoice-info">
+  <% if(session[:current_cart_invoice_id]) %>
+    <div class="prozo-invoice-info">
       <ul class="prozo-invoice-item">
-        <li>Pasta</li>
-        <li>Pasta</li>
-        <li>Pasta</li>
+        <% OrderItem.where(invoice_id: session[:current_cart_invoice_id]).map do |item| %>
+          <li><%= MenuItem.find(item.menu_item_id).name %></li>
+        <% end %>
       </ul>
       <ul class="prozo-invoice-item">
-        <li>Rs. 299</li>
-        <li>Rs. 450</li>
-        <li>Rs. 250</li>
+        <% OrderItem.where(invoice_id: session[:current_cart_invoice_id]).map do |item| %>
+          <li>Rs. <%= MenuItem.find(item.menu_item_id).price %></li>
+        <% end %>
       </ul>
     </div>
     <div class="prozo-invoice-price">
-      Rs. 1000
+      Rs. <%= Invoice.find(session[:current_cart_invoice_id]).total_bill %>
     </div>
-    <div><a class="order-button">Order</a></div>
+    <div><%= link_to "Order", {:action=>"update", :controller=>"invoices", :id=>session[:current_cart_invoice_id]},method: "put", class:"order-button" %></div>
+  <% else %>
+    EMPTY CART
+  <% end %>
+
 </div>
 <p class="coords">PROZO N 49° 16' 35.173"  /  W 0° 42' 11.30" PROZO</p>
