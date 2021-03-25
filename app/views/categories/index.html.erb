@@ -1,5 +1,8 @@
 <div class="prozo-menu-wrapper">
-  <span class="prozo-menu-buttons"><%= link_to "Add Category", {:action=>"new", :controller=>"categories"}%> <%= link_to "Add Menu Item", {:action=>"new", :controller=>"menuitems"}%></span>
+  <h1 class="prozo-menu-heading">MENU</h1>
+  <% if( @current_user && @current_user.role == "admin")%>
+    <span class="prozo-menu-buttons"><%= link_to "Add Category", {:action=>"new", :controller=>"categories"}%> <%= link_to "Add Menu Item", {:action=>"new", :controller=>"menuitems"}%></span>
+  <% end %>
 
   <% Category.all.order("id").map do |category| %>
     <%= render partial: "category-section", locals: {

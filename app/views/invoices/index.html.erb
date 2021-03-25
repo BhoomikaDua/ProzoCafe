@@ -1,27 +1,15 @@
 <div class="prozo-invoices-wrapper">
   <h1 class="user-form-title">Order History</h1>
-  <div class="prozo-invoice-wrapper">
-    <div class="prozo-invoice-info">
-      <ul class="prozo-invoice-item">
-        <li>Pasta</li>
-        <li>Pasta</li>
-        <li>Pasta</li>
-      </ul>
-      <ul class="prozo-invoice-item">
-        <li>Rs. 299</li>
-        <li>Rs. 450</li>
-        <li>Rs. 250</li>
-      </ul>
-    </div>
-    <div class="prozo-invoice-price">
-      Rs. 1000
-    </div>
-    <div class="prozo-invoice-delivery-toggle">
-      <label class="switch">
-        <input type="checkbox" class="prozo-checkbox">
-        <span class="slider round"></span>
-      </label>
-      <span class="invoice-delivered-label">Delivered</span>
-    </div>
-  </div>
+  <% @invoices.where(delivered: false).map do |invoice|%>
+    <%= render partial: "invoices-listing", locals: {
+      invoice: invoice
+    } %>
+  <% end %>
+
+  <% @invoices.where(delivered: true).map do |invoice|%>
+    <%= render partial: "invoices-listing", locals: {
+      invoice: invoice
+    } %>
+  <% end %>
+
 </div>

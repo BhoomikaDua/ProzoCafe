@@ -1,3 +1,7 @@
+<% is_customer = (@current_user  && ( @current_user.role == "customer" )) || session[:current_user_id] == nil
+   disable_select_class= is_customer ? "user-form-disabled" : ""
+%>
+
 <section class="users-new">
   <%= form_with url: {:action=>"create", :controller=>"users"}, method: :post do |form| %>
     <h1 class="user-form-title">Register</h1>
@@ -7,9 +11,13 @@
       <%= form.text_field :name, class: "user-form-input" %>
     </div>
 
-    <div class="user-form-input-section user-form-disabled">
+    <div class="user-form-input-section <%= disable_select_class %>">
       <p class="user-form-input-label">Role:</p>
-      <%= form.select :role, [["Customer", "customer"], ["Billing Clerk", "clerk"], ["Admin", "admin"]], selected: "customer" %>
+      <% if( @current_user  && @current_user.role == "admin")%>
+        <%= form.select :role, [["Customer", "customer"], ["Billing Clerk", "clerk"], ["Admin", "admin"]], selected: "clerk", :disabled => ["customer"] %>
+      <% else%>
+        <%= form.select :role, [["Customer", "customer"], ["Billing Clerk", "clerk"], ["Admin", "admin"]], selected: "customer", :disabled => ["clerk","admin"] %>
+      <% end%>
     </div>
 
     <div class="user-form-input-section">

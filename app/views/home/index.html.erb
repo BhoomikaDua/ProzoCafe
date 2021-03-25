@@ -4,7 +4,15 @@
   <div class="title">
     <h3>Food for Heart</h3>
     <h1>PROZO</h1>
-    <span class="prozo-home-buttons"><%= link_to "Login", new_sessions_path%> <%= link_to "Register", new_user_path%></span>
+    <span class="prozo-home-buttons">
+    <% if(!@current_user) %>
+      <%= link_to "Login", new_sessions_path%>
+    <% end%>
+    <% if( !@current_user || (@current_user && @current_user.role == "admin")    ) %>
+      <%= link_to "Register", new_user_path%>
+    <% end%>
+
+    </span>
   </div>
 </section>
 

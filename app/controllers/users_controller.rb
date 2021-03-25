@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
-  def index
-    render plain: "hello"
-  end
+  skip_before_action :ensure_user_logged_in
 
   def new
+    @current_user = current_user
     render "users/new"
   end
 

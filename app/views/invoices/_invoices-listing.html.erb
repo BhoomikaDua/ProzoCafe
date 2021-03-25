@@ -1,0 +1,46 @@
+<div class="prozo-invoice-wrapper">
+      <div class="prozo-invoice-info">
+        <ul class="prozo-invoice-item">
+          <% OrderItem.where(invoice_id: invoice.id).map do |item| %>
+            <li><%= MenuItem.find(item.menu_item_id).name %></li>
+          <% end %>
+        </ul>
+        <ul class="prozo-invoice-item">
+          <% OrderItem.where(invoice_id: invoice.id).map do |item| %>
+            <li>Rs. <%= MenuItem.find(item.menu_item_id).price %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="prozo-invoice-type">
+        <% order_type = invoice.online_order ? "ONLINE" : "WALK-IN" %>
+        <%= order_type%>
+      </div>
+      <div class="prozo-invoice-price">
+        Rs. <%= invoice.total_bill %>
+      </div>
+      <div class="prozo-invoice-delivery-toggle">
+        <% if(!invoice.delivered) %>
+          <% if(@current_user.role == "customer") %>
+            <span class="invoice-delivered-label">Order Pending</span>
+            <p class="prozo-delivery-date"><%= invoice.created_at.strftime("%Y-%m-%d") %></p>
+          <% else %>
+            <label class="switch">
+              <%= form_with(url: "deliver/#{invoice.id}", method: "put") do %>
+                <input
+                  type="checkbox"
+                  <% order_delivered = invoice.delivered ? "checked" : "" %>
+                  <%= order_delivered %>
+                  name="delivered"
+                  class= "prozo-checkbox"
+                  onclick="this.form.submit()"
+                >
+                <span class="slider round"></span>
+              <% end %>
+            </label>
+          <% end %>
+        <% else %>
+          <span class="invoice-delivered-label">Delivered</span>
+          <p class="prozo-delivery-date"><%= invoice.updated_at.strftime("%Y-%m-%d") %></p>
+        <% end %>
+      </div>
+    </div>

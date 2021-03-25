@@ -1,6 +1,13 @@
 class SessionsController < ApplicationController
+  skip_before_action :ensure_user_logged_in
 
   def new
+    if(session[:current_user_id])
+      flash[:error] = "You are already Logged In."
+      redirect_to "/"
+      return false
+    end
+    render "new"
   end
 
   def create
@@ -8,7 +15,7 @@ class SessionsController < ApplicationController
     if(user && user.authenticate(params[:password]))
       session[:current_user_id] = user.id
       cart = Invoice.where(user_id: user.id.to_s, in_cart: true)
-      if(cart)
+      if(cart.count > 0)
         session[:current_cart_invoice_id] = cart.first.id
       end
 

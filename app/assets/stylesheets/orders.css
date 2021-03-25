@@ -19,7 +19,12 @@
   color: #000;
   padding: 25px;
 }
-
+.prozo-invoice-wrapper div{
+  width:20%
+}
+.prozo-invoice-wrapper .prozo-invoice-info{
+  width:30%;
+}
 .prozo-invoice-info{
     display:flex;
 }
@@ -109,4 +114,16 @@ input.prozo-checkbox:checked + .slider:before {
   margin-left:-4px;
   font-size:15px;
   color:#989898;
+}
+
+.prozo-invoice-type:before{
+  content: 'ORDER-TYPE';
+  display: block;
+  font-size: 15px;
+  color: #989898;
+}
+.prozo-delivery-date{
+  margin:5px;
+  font-size: 17px;
+  color: #989898;
 }

@@ -1,10 +1,18 @@
 class InvoicesController < ApplicationController
 
   def index
+    @current_user = current_user
+    if(@current_user && @current_user.role == "customer")
+      @invoices = Invoice.where(user_id: @current_user.id)
+    else
+      @invoices = Invoice.all
+    end
+
     render "index"
   end
 
   def cart
+    @current_user = current_user
     render "cart"
   end
 
@@ -28,6 +36,7 @@ class InvoicesController < ApplicationController
         cart.total_bill = cart.total_bill + new_cart_item.menu_item_price
         cart.production_cost = cart.production_cost + new_cart_item.menu_item_production_cost
         cart.save
+        flash[:success] = "Item is successfully added to the Cart!"
         redirect_to categories_path
       else
         flash[:error] = "We were unable to process your order, Please Try Again!"
@@ -62,6 +71,15 @@ class InvoicesController < ApplicationController
     invoice.in_cart = false
     invoice.save
     session[:current_cart_invoice_id] = nil
+
+    redirect_to invoices_path
+  end
+
+  def deliver
+    id = params[:id]
+    invoice = Invoice.find(id)
+    invoice.delivered = true
+    invoice.save
 
     redirect_to invoices_path
   end

@@ -12,23 +12,37 @@
 
   <body>
     <nav class="prozo-navigation">
-      <span class="prozo-logo-holder">
-          <span class="prozo-logo">Prozo</span>
-          <span class="prozo-greeting">Greetings, Guest</span>
-      </span>
+      <a href="/" class="proozo-logo-home-link">
+        <span class="prozo-logo-holder">
+            <span class="prozo-logo">Prozo</span>
+            <span class="prozo-greeting">Greetings, Guest</span>
+        </span>
+      </a>
 
       <span class="prozo-links">
           <%= link_to "Menu", {:action=>"index", :controller=>"categories"}, class:"prozo-link" %>
           <%= link_to "Orders", {:action=>"index", :controller=>"invoices"}, class:"prozo-link" %>
-          <span class="prozo-link">Report</span>
-          <%= link_to "Cart", cart_path, class:"prozo-link" %>
-          <%= link_to "Logout", destroy_session_path ,method: "delete", class:"prozo-link" %>
+          <% if(session[:current_user_id] && User.find(session[:current_user_id]).role == "admin" ) %>
+            <%= link_to "Report", {:action=>"index", :controller=>"report"}, class:"prozo-link" %>
+          <% end %>
+          <% if(session[:current_cart_invoice_id]) %>
+            <%= link_to "Cart", cart_path, class:"prozo-link" %>
+          <% end %>
+          <% if(session[:current_user_id]) %>
+            <%= link_to "Logout", destroy_session_path ,method: "delete", class:"prozo-link" %>
+          <% end %>
       </span>
     </nav>
 
     <% if(flash[:error]) %>
         <div class="prozo-flash-message-container">
           <%= flash[:error] %>
+        </div>
+    <% end %>
+
+    <% if(flash[:success]) %>
+        <div class="prozo-flash-success-message-container">
+          <%= flash[:success] %>
         </div>
     <% end %>
 
