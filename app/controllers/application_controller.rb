@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   def ensure_user_logged_in
     unless current_user
+      flash[:error] = "Please Login With Appropraite Credentials to Access the Page"
       redirect_to "/"
     end
   end

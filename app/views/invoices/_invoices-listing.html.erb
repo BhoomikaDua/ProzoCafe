@@ -26,6 +26,7 @@
           <% else %>
             <label class="switch">
               <%= form_with(url: "deliver/#{invoice.id}", method: "put") do %>
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                 <input
                   type="checkbox"
                   <% order_delivered = invoice.delivered ? "checked" : "" %>
