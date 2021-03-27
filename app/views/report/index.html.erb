@@ -4,10 +4,12 @@
   <section class="prozo-report-section">
     <h1 class="prozo-section-title">Most Ordered Menu Items</h1>
     <div class="prozo-report-order-frequency-wrapper">
-      <div class="report-item-frequency-row">
-        <span class="report-item-name">Pasta</span>
-        <span class="report-item-frequency">62</span>
+      <% MenuItem.all.order("ordering_frequency DESC").limit(5).map do |item|%>
+        <div class="report-item-frequency-row">
+        <span class="report-item-name"><%= item.name %></span>
+        <span class="report-item-frequency"><%= item.ordering_frequency %></span>
       </div>
+      <% end %>
     </div>
   </section>
 
@@ -15,10 +17,13 @@
     <h1 class="prozo-section-title">Types of Orders</h1>
     <div class="prozo-report-order-type-wrapper">
       <div class="report-item-type-row">
-        <span class="report-order-type">Pasta</span>
-        <span class="report-order-type-frequency">62</span>
+        <span class="report-order-type">Online</span>
+        <span class="report-order-type-frequency"><%= Invoice.where(online_order: true, in_cart: false).count %></span>
       </div>
-
+      <div class="report-item-type-row">
+        <span class="report-order-type">Walk-in</span>
+        <span class="report-order-type-frequency"><%= Invoice.where(online_order: false, in_cart: false).count %></span>
+      </div>
     </div>
   </section>
 
@@ -26,16 +31,17 @@
     <h1 class="prozo-section-title">Earnings</h1>
     <div class="prozo-report-order-profit-row">
       <span class="report-earnings-label">Profit</span>
-      <span class="report-earnings report-profit ">Rs. 62</span>
-    </div>
-    <div class="prozo-report-order-profit-row">
-      <span class="report-earnings-label">Revenue</span>
-      <span class="report-earnings report-profit">Rs. 62</span>
+      <span class="report-earnings report-profit "><%= Invoice.sum(:total_bill) -  Invoice.sum(:production_cost)%></span>
     </div>
     <div class="prozo-report-order-profit-row">
       <span class="report-earnings-label">Production Cost</span>
-      <span class="report-earnings report-loss">Rs. 62</span>
+      <span class="report-earnings report-loss"><%= Invoice.sum(:production_cost) %></span>
     </div>
+    <div class="prozo-report-order-profit-row">
+      <span class="report-earnings-label">Revenue</span>
+      <span class="report-earnings report-profit"><%= Invoice.sum(:total_bill) %></span>
+    </div>
+
   </section>
 
 

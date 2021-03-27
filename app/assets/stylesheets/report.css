@@ -58,3 +58,7 @@
 .report-earnings-label{
   font-size:30px;
 }
+.report-earnings:before{
+  content:'Rs. ';
+  font-size:22px;;
+}
