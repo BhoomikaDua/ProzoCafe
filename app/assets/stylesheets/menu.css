@@ -5,9 +5,12 @@
   font-family:'Oswald', sans-serif;
 }
 .prozo-menu-heading{
-  font-size:70px;
-  margin:50px;
   border:1px solid #eee;
+  font-size: 70px;
+  margin: 50px 0;
+  background: #1F2739;
+  border-radius: 10px;
+  color: #fff;
 }
 .prozo-menu-buttons a{
   text-decoration:none;

@@ -72,6 +72,12 @@ class InvoicesController < ApplicationController
     invoice.save
     session[:current_cart_invoice_id] = nil
 
+    OrderItem.where(invoice_id: id).map do |item|
+      item = MenuItem.find(item.menu_item_id)
+      item.ordering_frequency = item.ordering_frequency + 1
+      item.save
+    end
+
     redirect_to invoices_path
   end
 

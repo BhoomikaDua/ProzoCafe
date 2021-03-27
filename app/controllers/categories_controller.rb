@@ -3,6 +3,11 @@ class CategoriesController < ApplicationController
 
   def index
     @current_user = current_user
+    if(@current_user && @current_user.role == "admin")
+      @categories = Category.all
+    else
+      @categories = Category.where(is_active: true)
+    end
     render "index"
   end
 

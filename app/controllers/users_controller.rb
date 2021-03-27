@@ -7,14 +7,17 @@ class UsersController < ApplicationController
   end
 
   def create
+    @current_user = current_user
     new_user = User.new(
-      name: params[:first_name],
+      name: params[:name],
       role: params[:role],
       email:params[:email],
       password:params[:password]
     )
     if new_user.save
-      session[:current_user_id] = new_user.id
+      if(new_user.role == "customer")
+        session[:current_user_id] = new_user.id
+      end
       redirect_to "/"
     else
       flash[:error] = "The Details Filled Are Invalid, Please Try Again!"

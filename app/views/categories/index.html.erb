@@ -4,13 +4,11 @@
     <span class="prozo-menu-buttons"><%= link_to "Add Category", {:action=>"new", :controller=>"categories"}%> <%= link_to "Add Menu Item", {:action=>"new", :controller=>"menuitems"}%></span>
   <% end %>
 
-  <% Category.all.order("id").map do |category| %>
+  <% @categories.order("id").map do |category| %>
     <%= render partial: "category-section", locals: {
       category_name: category.name,
       category_id:category.id,
       category_active: category.is_active ? "checked" : ""
     } %>
   <% end %>
-
-
 </div>
