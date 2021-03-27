@@ -5,15 +5,19 @@ class MenuItem < ApplicationRecord
   validates :production_cost ,presence: true
   belongs_to :category
 
-  def self.updateFrequency(id)
-    arr = []
-    OrderItem.where(invoice_id :id).map do |item|
-      item = MenuItem.find(item.menu_item_id)
-      item.ordering_frequency = item.ordering_frequency + 1
-      item.save
-      arr.push(item)
-    end
+  def self.categoryMenuItems(category_id)
+    MenuItem.all.order("id").where("category_id = ?", category_id.to_s)
+  end
 
-    arr
+  def self.createMenuItem(name, description, category_id, price, production_cost)
+    new_menu_item = MenuItem.new(
+      name: name,
+      description: description,
+      category_id: category_id,
+      price: price,
+      ordering_frequency: 0,
+      production_cost: production_cost
+    )
+    new_menu_item
   end
 end

@@ -1,7 +1,7 @@
 <div class="menu-row">
   <span><%= item.name %></span>
   <span class="menu-item-description"><%= item.description %></span>
-  <span><%= item.price %></span>
+  <span>Rs. <%= item.price %></span>
   <span class="menu-add-to-cart">
     <%= link_to "ADD TO CART", {:action=>"create", :controller=>"invoices", :id=>item.id, authenticity_token: form_authenticity_token},method: "post", class:"add-to-cart-button" %>
   </span>

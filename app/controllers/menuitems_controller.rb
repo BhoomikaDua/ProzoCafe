@@ -5,16 +5,7 @@ class MenuitemsController < ApplicationController
   end
 
   def create
-    new_menu_item = MenuItem.new(
-      name: params[:name],
-      description: params[:description],
-      category_id: params[:category_id],
-      price: params[:price],
-      ordering_frequency: 0,
-      production_cost: params[:production_cost],
-      created_on: DateTime.now
-    )
-
+    new_menu_item = MenuItem.createMenuItem(params[:name], params[:description], params[:category_id], params[:price], params[:production_cost])
     if new_menu_item.save
       redirect_to categories_path
     else

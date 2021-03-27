@@ -1,12 +1,12 @@
 <div class="prozo-invoices-wrapper">
   <h1 class="user-form-title">Order History</h1>
-  <% @invoices.where(delivered: false).map do |invoice|%>
+  <% @invoices.pendingOrders.map do |invoice|%>
     <%= render partial: "invoices-listing", locals: {
       invoice: invoice
     } %>
   <% end %>
 
-  <% @invoices.where(delivered: true).map do |invoice|%>
+  <% @invoices.deliveredOrders.map do |invoice|%>
     <%= render partial: "invoices-listing", locals: {
       invoice: invoice
     } %>

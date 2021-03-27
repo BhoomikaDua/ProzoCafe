@@ -16,7 +16,7 @@
   <% end %>
 
 
-<% MenuItem.all.order("id").where("category_id = ?", category_id.to_s).map do |item| %>
+<% MenuItem.categoryMenuItems(category_id).map do |item| %>
     <%= render partial: "menu-section", locals: {
       item: item
     } %>

@@ -4,9 +4,9 @@ class CategoriesController < ApplicationController
   def index
     @current_user = current_user
     if(@current_user && @current_user.role == "admin")
-      @categories = Category.all
+      @categories = Category.all.order("id")
     else
-      @categories = Category.where(is_active: true)
+      @categories = Category.where(is_active: true).order("id")
     end
     render "index"
   end
@@ -15,11 +15,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    new_category = Category.new(
-      name: params[:name],
-      is_active: params[:is_active],
-      created_on: DateTime.now
-    )
+    new_category = Category.createCategory(params[:name], params[:is_active])
     if new_category.save
       redirect_to categories_path
     else
@@ -31,9 +27,7 @@ class CategoriesController < ApplicationController
   def update
     id = params[:id]
     is_active = params[:is_active]
-    category = Category.find(id)
-    category.is_active = !!is_active
-    category.save
+    Category.toggleActiveStatus(id, is_active)
 
     redirect_to categories_path
   end

@@ -1,11 +1,5 @@
 <%
-  categoryChoices=Array.new;
-  Category.all.map{ |category|
-    puts category.name
-    puts category.id
-    categoryOption=[category.name.to_s, category.id.to_s];
-    categoryChoices.push(categoryOption)
-  }
+  categoryChoices = Category.categoryArray
 %>
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_104325) do
+ActiveRecord::Schema.define(version: 2021_03_27_112619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2021_03_22_104325) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.boolean "is_active"
-    t.datetime "created_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -40,7 +39,6 @@ ActiveRecord::Schema.define(version: 2021_03_22_104325) do
     t.string "category_id"
     t.bigint "price"
     t.bigint "ordering_frequency"
-    t.datetime "created_on"
     t.bigint "production_cost"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -61,7 +59,6 @@ ActiveRecord::Schema.define(version: 2021_03_22_104325) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
-    t.datetime "created_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

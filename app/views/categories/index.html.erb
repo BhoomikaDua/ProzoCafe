@@ -4,7 +4,7 @@
     <span class="prozo-menu-buttons"><%= link_to "Add Category", {:action=>"new", :controller=>"categories"}%> <%= link_to "Add Menu Item", {:action=>"new", :controller=>"menuitems"}%></span>
   <% end %>
 
-  <% @categories.order("id").map do |category| %>
+  <% @categories.map do |category| %>
     <%= render partial: "category-section", locals: {
       category_name: category.name,
       category_id:category.id,
