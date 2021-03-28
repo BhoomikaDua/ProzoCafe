@@ -20,25 +20,9 @@
       </div>
       <div class="prozo-invoice-delivery-toggle">
         <% if(!invoice.delivered) %>
-          <% if(@current_user.role == "customer") %>
-            <span class="invoice-delivered-label">Order Pending</span>
-            <p class="prozo-delivery-date"><%= invoice.created_at.strftime("%Y-%m-%d") %></p>
-          <% else %>
-            <label class="switch">
-              <%= form_with(url: "deliver/#{invoice.id}", method: "put") do %>
-                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-                <input
-                  type="checkbox"
-                  <% order_delivered = invoice.delivered ? "checked" : "" %>
-                  <%= order_delivered %>
-                  name="delivered"
-                  class= "prozo-checkbox"
-                  onclick="this.form.submit()"
-                >
-                <span class="slider round"></span>
-              <% end %>
-            </label>
-          <% end %>
+          <%= render partial: "pending-invoice-action", locals: {
+            invoice: invoice
+          } %>
         <% else %>
           <span class="invoice-delivered-label">Delivered</span>
           <p class="prozo-delivery-date"><%= invoice.updated_at.strftime("%Y-%m-%d") %></p>
