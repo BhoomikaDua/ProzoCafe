@@ -30,7 +30,7 @@ class InvoicesController < ApplicationController
       if new_cart_item.save
         cart = Invoice.find(session[:current_cart_invoice_id])
         #Adding Price and Production Cost to the Invoice
-        Invoice.updatePrice(cart, new_cart_item)
+        Invoice.updatePrice(cart, new_cart_item, "add")
         flash[:success] = "Item successfully added to the Cart!"
         redirect_to categories_path
       else

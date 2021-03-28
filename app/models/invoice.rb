@@ -26,10 +26,17 @@ class Invoice < ApplicationRecord
     invoice.save
   end
 
-  def self.updatePrice(cart, new_cart_item)
-    cart.total_bill = cart.total_bill + new_cart_item.menu_item_price
-    cart.production_cost = cart.production_cost + new_cart_item.menu_item_production_cost
-    cart.save
+  def self.updatePrice(cart, new_cart_item, action)
+    if(action == "add")
+      cart.total_bill = cart.total_bill + new_cart_item.menu_item_price
+      cart.production_cost = cart.production_cost + new_cart_item.menu_item_production_cost
+      cart.save
+    end
+    if(action == "remove")
+      cart.total_bill = cart.total_bill - new_cart_item.menu_item_price
+      cart.production_cost = cart.production_cost - new_cart_item.menu_item_production_cost
+      cart.save
+    end
   end
 
   def self.pendingOrders

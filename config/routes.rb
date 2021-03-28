@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users
   resources :menuitems, path: '/categories/menuitem'
   resources :report
+  resources :orderitems
 
   get "/cart" => "invoices#cart", as: :cart
   put "/deliver/:id" => "invoices#deliver", as: :deliver

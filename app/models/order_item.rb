@@ -17,4 +17,8 @@ class OrderItem < ApplicationRecord
       item.save
     end
   end
+
+  def self.itemInCart(invoice_id, item_id)
+    OrderItem.where(invoice_id: invoice_id, menu_item_id: item_id).first
+  end
 end

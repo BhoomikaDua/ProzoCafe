@@ -9,7 +9,7 @@
       </ul>
       <ul class="prozo-invoice-item">
         <% OrderItem.where(invoice_id: session[:current_cart_invoice_id]).map do |item| %>
-          <li>Rs. <%= MenuItem.find(item.menu_item_id).price %></li>
+          <li><%= item.items_purchased %> x Rs. <%= item.menu_item_price %></li>
         <% end %>
       </ul>
     </div>
