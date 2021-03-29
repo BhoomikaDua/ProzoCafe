@@ -22,7 +22,7 @@
       </div>
       <div class="prozo-invoice-delivery-toggle">
         <% if(!invoice.delivered) %>
-          <%= render partial: "pending-invoice-action", locals: {
+          <%= render partial: "invoices/pending-invoice-action", locals: {
             invoice: invoice
           } %>
         <% else %>

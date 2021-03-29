@@ -2,6 +2,25 @@
   <h1 class="user-form-title">Report</h1>
 
   <section class="prozo-report-section">
+    <h1 class="prozo-section-title"> Custom Invoices</h1>
+    <%= form_with url: {:action=>"create", :controller=>"report"}, method: :post do |form| %>
+
+      <div class="user-form-input-section">
+        <p class="user-form-input-label">Start Date:</p>
+        <%= form.date_field :start_date, class: "user-form-input" %>
+      </div>
+
+      <div class="user-form-input-section">
+        <p class="user-form-input-label">End Date:</p>
+        <%= form.date_field :end_date, class: "user-form-input" %>
+      </div>
+
+      <%= form.submit "Show Invoices", class: "user-form-submit-button" %>
+
+    <% end %>
+  </section>
+
+  <section class="prozo-report-section">
     <h1 class="prozo-section-title">Most Ordered Menu Items</h1>
     <div class="prozo-report-order-frequency-wrapper">
       <% MenuItem.all.order("ordering_frequency DESC").limit(5).map do |item|%>
