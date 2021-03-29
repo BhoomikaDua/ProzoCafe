@@ -31,7 +31,7 @@ class InvoicesController < ApplicationController
         cart = Invoice.find(session[:current_cart_invoice_id])
         #Adding Price and Production Cost to the Invoice
         Invoice.updatePrice(cart, new_cart_item, "add")
-        flash[:success] = "Item successfully added to the Cart!"
+        flash[:success] = "Item Successfully Added To The Cart!"
         redirect_to categories_path
       else
         flash[:error] = "We were unable to process your order, Please Try Again!"

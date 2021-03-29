@@ -1,0 +1,44 @@
+<%
+  categoryChoices = Category.categoryArray
+%>
+
+
+<section class="users-new">
+  <%= form_with url: {:action=>"update", :controller=>"menuitems"}, method: :patch, id: @menuitem.id do |form| %>
+    <h1 class="user-form-title">Add Menu Item</h1>
+
+    <div class="user-form-input-section">
+      <p class="user-form-input-label">Name:</p>
+      <%= form.text_field :name, class: "user-form-input", value: @menuitem.name %>
+    </div>
+
+    <div class="user-form-input-section">
+      <p class="user-form-input-label">Category:</p>
+      <%= form.select :category_id, categoryChoices, selected: @menuitem.category_id %>
+    </div>
+
+    <div class="user-form-input-section">
+      <p class="user-form-input-label">Description:</p>
+      <%= form.text_area :description, class: "user-form-input", class:"user-form-text-area" ,value: @menuitem.description %>
+    </div>
+
+    <div class="user-form-input-section">
+      <p class="user-form-input-label">Price:</p>
+      <%= form.number_field :price, class: "user-form-input" ,value: @menuitem.price%>
+    </div>
+
+    <div class="user-form-input-section">
+      <p class="user-form-input-label">Production Cost:</p>
+      <%= form.number_field :production_cost, class: "user-form-input",value: @menuitem.production_cost %>
+    </div>
+
+    <div class="user-form-input-section">
+      <p class="user-form-input-label">Stock:</p>
+      <%= form.number_field :stock, class: "user-form-input",value: @menuitem.stock %>
+    </div>
+
+    <%= form.submit "Update", class: "edit-menu-item-button" %>
+    <%= link_to "Delete", {:action=>"destroy", :controller=>"menuitems", :id=>@menuitem.id, authenticity_token: form_authenticity_token} ,method: "delete", class:"delete-menu-item-button" %>
+
+  <% end %>
+</section>

@@ -32,6 +32,11 @@
       <%= form.number_field :production_cost, class: "user-form-input" %>
     </div>
 
+    <div class="user-form-input-section">
+      <p class="user-form-input-label">Stock:</p>
+      <%= form.number_field :stock, class: "user-form-input" %>
+    </div>
+
     <%= form.submit "Add", class: "user-form-submit-button" %>
 
   <% end %>
