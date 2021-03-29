@@ -27,22 +27,30 @@ class InvoicesController < ApplicationController
       menu_item = MenuItem.find(params[:id])
       new_cart_item = OrderItem.createOrderItem(session[:current_cart_invoice_id], menu_item)
 
+      if(menu_item.stock == 0)
+        flash[:error] = "We are out of stock!"
+        redirect_to categories_path
+        return false
+      end
+
       if new_cart_item.save
         cart = Invoice.find(session[:current_cart_invoice_id])
         #Adding Price and Production Cost to the Invoice
         Invoice.updatePrice(cart, new_cart_item, "add")
+        #Updating Stock
+        MenuItem.updateStock(menu_item_id , "remove")
         flash[:success] = "Item Successfully Added To The Cart!"
         redirect_to categories_path
       else
         flash[:error] = "We were unable to process your order, Please Try Again!"
         redirect_to categories_path
       end
-
     else
       #If invoice doesnt exist, then we create a new Invoice
       new_cart = Invoice.createInvoice(current_user)
       if new_cart.save
         session[:current_cart_invoice_id] = new_cart.id
+        #Adding item after creating an invoice
         create
       else
         flash[:error] = "Unable to process your order, Please Try Again!"

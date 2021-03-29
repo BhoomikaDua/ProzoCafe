@@ -6,7 +6,8 @@ class OrderItem < ApplicationRecord
       menu_item_id: menu_item.id,
       menu_item_price: menu_item.price,
       menu_item_production_cost: menu_item.production_cost,
-      items_purchased: 1
+      items_purchased: 1,
+      menu_item_name: menu_item.name
       )
   end
 

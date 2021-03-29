@@ -4,7 +4,7 @@
     <div class="prozo-invoice-info">
       <ul class="prozo-invoice-item">
         <% OrderItem.where(invoice_id: session[:current_cart_invoice_id]).map do |item| %>
-          <li><%= MenuItem.find(item.menu_item_id).name %></li>
+          <li><%= item.menu_item_name %></li>
         <% end %>
       </ul>
       <ul class="prozo-invoice-item">

@@ -36,4 +36,16 @@ class MenuItem < ApplicationRecord
     )
     menu_item
   end
+
+  def self.updateStock(menu_item_id, action)
+    menu_item = MenuItem.find(menu_item_id)
+    if(action == "add")
+      menu_item.stock = menu_item.stock + 1
+      menu_item.save
+    end
+    if(action == "remove")
+      menu_item.stock = menu_item.stock - 1
+      menu_item.save
+    end
+  end
 end

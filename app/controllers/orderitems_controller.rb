@@ -8,9 +8,17 @@ class OrderitemsController < ApplicationController
     cart = Invoice.find(invoice_id)
 
     if(params[:itemAction] == "add")
+      if(MenuItem.find(menu_item_id).stock == 0)
+        flash[:error] = "We are out of stock!"
+        redirect_to categories_path
+        return false
+      end
+
       order_item.items_purchased = order_item.items_purchased + 1
       order_item.save
       Invoice.updatePrice(cart, order_item, "add")
+      #Updating Stock
+      MenuItem.updateStock(menu_item_id , "remove")
       flash[:success] = "Item Successfully Added To The Cart!"
       redirect_to categories_path
     end
@@ -19,6 +27,8 @@ class OrderitemsController < ApplicationController
       order_item.items_purchased = order_item.items_purchased - 1
       order_item.save
       Invoice.updatePrice(cart, order_item, "remove")
+      #Updating Stock
+      MenuItem.updateStock(menu_item_id , "add")
       flash[:success] = "Item Successfully Removed From The Cart"
 
       if(order_item.items_purchased == 0)
