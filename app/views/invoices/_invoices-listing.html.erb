@@ -1,3 +1,5 @@
+<% invoice_user = User.find(invoice.user_id) %>
+
 <div class="prozo-invoice-wrapper">
       <div class="prozo-invoice-info">
         <ul class="prozo-invoice-item">
@@ -28,4 +30,17 @@
           <p class="prozo-delivery-date"><%= invoice.updated_at.strftime("%Y-%m-%d") %></p>
         <% end %>
       </div>
+
+      <% if( @current_user && @current_user.role == "admin")%>
+        <div class="prozo-invoice-user-details">
+          <span class="prozo-invoice-user-details-section">
+            <span class="prozo-invoice-user-details-label">Name: </span>
+            <span class="prozo-invoice-user-details-info"><%= invoice_user.name %></span>
+          </span>
+          <span class="prozo-invoice-user-details-section">
+            <span class="prozo-invoice-user-details-label">Email: </span>
+            <span class="prozo-invoice-user-details-info"><%= invoice_user.email %></span>
+          </span>
+        </div>
+      <% end %>
     </div>

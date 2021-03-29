@@ -16,7 +16,7 @@
     <div class="prozo-invoice-price">
       Rs. <%= Invoice.find(session[:current_cart_invoice_id]).total_bill %>
     </div>
-    <div><%= link_to "Order", {:action=>"update", :controller=>"invoices", :id=>session[:current_cart_invoice_id]},method: "put", class:"order-button" %></div>
+    <div><%= link_to "Checkout", {:action=>"update", :controller=>"invoices", :id=>session[:current_cart_invoice_id]},method: "put", class:"order-button" %></div>
   <% else %>
     EMPTY CART
   <% end %>

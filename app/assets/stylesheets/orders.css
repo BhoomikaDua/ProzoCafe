@@ -18,6 +18,7 @@
   font-weight: 700;
   color: #000;
   padding: 25px;
+  flex-wrap: wrap;
 }
 .prozo-invoice-wrapper div{
   width:20%
@@ -126,4 +127,15 @@ input.prozo-checkbox:checked + .slider:before {
   margin:5px;
   font-size: 17px;
   color: #989898;
+}
+
+.prozo-invoice-wrapper .prozo-invoice-user-details{
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  display: flex;
+  justify-content: space-between;
+}
+.prozo-invoice-user-details-info{
+  color:#989898;
 }
