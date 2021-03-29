@@ -34,7 +34,9 @@ class MenuitemsController < ApplicationController
 
   def destroy
     id =  params[:id]
-    end
+    MenuItem.destroy(id)
+    flash[:success] = "Menu Item Deleted"
+    redirect_to categories_path
   end
 
 end
