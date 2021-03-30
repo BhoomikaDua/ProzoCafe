@@ -12,7 +12,7 @@
   border-radius: 14px;
   margin: 20px 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   font-size: 20px;
   font-weight: 700;
@@ -20,11 +20,8 @@
   padding: 25px;
   flex-wrap: wrap;
 }
-.prozo-invoice-wrapper div{
-  width:20%
-}
 .prozo-invoice-wrapper .prozo-invoice-info{
-  width:30%;
+  width:37%;
 }
 .prozo-invoice-info{
     display:flex;
