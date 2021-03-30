@@ -46,4 +46,12 @@ class Invoice < ApplicationRecord
   def self.deliveredOrders
     all.where(delivered: true).order("updated_at DESC")
   end
+
+  def self.productionCost
+    Invoice.where(delivered: true).sum(:production_cost)
+  end
+
+  def self.totalBill
+    Invoice.where(delivered: true).sum(:total_bill)
+  end
 end

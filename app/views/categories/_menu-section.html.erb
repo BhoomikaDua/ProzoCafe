@@ -1,7 +1,9 @@
 <% itemInCart =  OrderItem.itemInCart(session[:current_cart_invoice_id], item.id) %>
 
 <div class="menu-row">
-  <span><%= item.name %></span>
+  <span>
+    <%= item.name %>
+  </span>
   <span class="menu-item-description"><%= item.description %></span>
   <span>Rs. <%= item.price %></span>
   <span class="menu-add-to-cart">
@@ -18,7 +20,11 @@
         <%= hidden_field_tag(:itemAction, "add") %>
       <% end %>
     <% else %>
-      <%= link_to "ADD TO CART", {:action=>"create", :controller=>"invoices", :id=>item.id, authenticity_token: form_authenticity_token},method: "post", class:"add-to-cart-button" %>
+      <% if(item.stock == 0)%>
+        <p class="out-of-stock-label"> Out Of Stock</p>
+      <% else %>
+        <%= link_to "ADD TO CART", {:action=>"create", :controller=>"invoices", :id=>item.id, authenticity_token: form_authenticity_token},method: "post", class:"add-to-cart-button" %>
+      <% end %>
     <% end %>
 
     <% if( @current_user && @current_user.role == "admin") %>

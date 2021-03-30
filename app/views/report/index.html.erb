@@ -47,18 +47,18 @@
   </section>
 
   <section class="prozo-report-section">
-    <h1 class="prozo-section-title">Earnings</h1>
+    <h1 class="prozo-section-title">Earnings Summary</h1>
     <div class="prozo-report-order-profit-row">
-      <span class="report-earnings-label">Profit</span>
-      <span class="report-earnings report-profit "><%= Invoice.sum(:total_bill) -  Invoice.sum(:production_cost)%></span>
+      <span class="report-earnings-label">Earning</span>
+      <span class="report-earnings report-profit "><%= Invoice.totalBill -  Invoice.productionCost%></span>
     </div>
     <div class="prozo-report-order-profit-row">
       <span class="report-earnings-label">Production Cost</span>
-      <span class="report-earnings report-loss"><%= Invoice.sum(:production_cost) %></span>
+      <span class="report-earnings report-loss"><%= Invoice.productionCost %></span>
     </div>
     <div class="prozo-report-order-profit-row">
       <span class="report-earnings-label">Revenue</span>
-      <span class="report-earnings report-profit"><%= Invoice.sum(:total_bill) %></span>
+      <span class="report-earnings report-profit"><%= Invoice.totalBill %></span>
     </div>
 
   </section>
