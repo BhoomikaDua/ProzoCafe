@@ -9,7 +9,7 @@
         </ul>
         <ul class="prozo-invoice-item">
           <% OrderItem.where(invoice_id: invoice.id).map do |item| %>
-            <li>Rs. <%= item.menu_item_price %></li>
+            <li> <%= item.items_purchased %> x Rs. <%= item.menu_item_price %></li>
           <% end %>
         </ul>
       </div>
@@ -39,7 +39,7 @@
           </span>
           <span class="prozo-invoice-user-details-section">
             <span class="prozo-invoice-user-details-label">Name: </span>
-            <span class="prozo-invoice-user-details-info"><%= invoice_user.name %></span>
+            <span class="prozo-invoice-user-details-info"><%= invoice_user.name.capitalize %></span>
           </span>
         </div>
       <% end %>
