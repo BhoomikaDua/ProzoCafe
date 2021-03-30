@@ -139,3 +139,6 @@ input.prozo-checkbox:checked + .slider:before {
 .prozo-invoice-user-details-info{
   color:#989898;
 }
+.prozo-invoice-item li{
+  text-align: left;
+}
