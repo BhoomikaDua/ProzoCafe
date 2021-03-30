@@ -34,12 +34,12 @@
       <% if( @current_user && @current_user.role == "admin")%>
         <div class="prozo-invoice-user-details">
           <span class="prozo-invoice-user-details-section">
-            <span class="prozo-invoice-user-details-label">Name: </span>
-            <span class="prozo-invoice-user-details-info"><%= invoice_user.name %></span>
+            <span class="prozo-invoice-user-details-label">Order ID: </span>
+            <span class="prozo-invoice-user-details-info"><%= invoice.id %></span>
           </span>
           <span class="prozo-invoice-user-details-section">
-            <span class="prozo-invoice-user-details-label">Email: </span>
-            <span class="prozo-invoice-user-details-info"><%= invoice_user.email %></span>
+            <span class="prozo-invoice-user-details-label">Name: </span>
+            <span class="prozo-invoice-user-details-info"><%= invoice_user.name %></span>
           </span>
         </div>
       <% end %>
