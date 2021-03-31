@@ -18,20 +18,33 @@ ___Deployed Link___ : [Prozo](https://prozo-cafe.herokuapp.com/ "Prozo")
 ## Functionality And Features
 
 ### Register/Login Page
-
 ##### Customers
-- can Login and Register as a Customer
+- Can Login and Register as a Customer
 ##### Clerk
-- can Login but cannot Register as a Clerk
+- Can Login but cannot Register as a Clerk
 ##### Admin/Owner
-- can Login as Admin
-- can Register other **clerks and admins only**
+- Can Login as Admin
+- Can Register other **clerks and admins only**
 
 ![Register](/Screenshots/Register.bmp)
 
 ### Menu Page
+##### Customers
+- Can add various Menuitems to cart using the Add to cart Button and Increase/Decrease Tool
+- Invoice is saved as an Online Order
+##### Clerk
+- Can add various Menuitems to cart using the Add to cart Button and Increase/Decrease Tool
+- Invoice is saved an a Walk-in Order
 
 ![Menu](/Screenshots/Menu.bmp)
+
+##### Admin/Owner
+- Can add various Menuitems to cart using the Add to cart Button and Increase/Decrease Tool
+- Invoice is saved an a Walk-in Order
+- Can Add Category for the menu
+- Can Add and Edit Menu Items
+- Can Activate/Deactivate Categories
+- Out of Stock Label appears when a menu item stock is empty
 
 ![Menu](/Screenshots/Edit.bmp)
 
