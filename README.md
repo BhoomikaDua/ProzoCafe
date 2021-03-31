@@ -1,5 +1,13 @@
 # Cafe Management Software - Prozo
-This is a Cafeteria Management System built on Rails and supports multiple users and roles like admin, customer, and billing-clerk.
+This is a Cafeteria Management System built on Rails and supports multiple users and roles like admin, customer, and billing-clerk. The management system comes with a custom admin account for the owner/admin to access all the features for the system like reports, menu management tool and much more.
+
+## Playground Credentials
+
+Role           |  Email           | Password
+-------------- | ---------------- | ------------- |
+Admin/Owner    | admin@admin.com  | admin
+Billing Clerk  | clerk@clerk.com  | clerk
+Customer       | suzy@suzy.com    | suzy
 
 ___Deployed Link___ : [Prozo](https://prozo-cafe.herokuapp.com/ "Prozo")
 
