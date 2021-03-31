@@ -4,7 +4,7 @@ This is a Cafeteria Management System built on Rails and supports multiple users
 ## Playground Credentials
 
 Role           |  Email           | Password
--------------- | ---------------- | ------------- |
+-------------- | ---------------- | -------------
 Admin/Owner    | admin@admin.com  | admin
 Billing Clerk  | clerk@clerk.com  | clerk
 Customer       | suzy@suzy.com    | suzy
@@ -12,11 +12,22 @@ Customer       | suzy@suzy.com    | suzy
 ___Deployed Link___ : [Prozo](https://prozo-cafe.herokuapp.com/ "Prozo")
 
 
+
 ![Homepage](/Screenshots/Homepage.bmp)
 
 ## Functionality And Features
 
 ### Register/Login Page
+
+##### Customers
+- can Login and Register as a Customer
+
+##### Clerk
+- can Login but cannot Register as a Clerk
+
+##### Admin/Owner
+- can Login as Admin
+- can Register other **clerks and admins only**
 
 ![Register](/Screenshots/Register.bmp)
 
@@ -31,6 +42,8 @@ ___Deployed Link___ : [Prozo](https://prozo-cafe.herokuapp.com/ "Prozo")
 ![Homepage](/Screenshots/Orders.bmp)
 
 ### Report Page
+
+Accessible to **Admin** Only
 
 ![Homepage](/Screenshots/Report1.bmp)
 
