@@ -48,4 +48,8 @@ class MenuItem < ApplicationRecord
       menu_item.save
     end
   end
+
+  def ordering_frequency_percentage
+    ordering_frequency*100/MenuItem.sum(:ordering_frequency)
+  end
 end

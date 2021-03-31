@@ -78,7 +78,7 @@ body{
 .prozo-link:hover{
   cursor:pointer;
   border:2px solid #eee;
-  padding:30px;
+  padding:20px 30px;
   border-radius:10px;
 }
 .prozo-home-buttons a{

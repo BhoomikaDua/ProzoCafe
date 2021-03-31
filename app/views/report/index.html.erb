@@ -26,7 +26,7 @@
       <% MenuItem.all.order("ordering_frequency DESC").limit(5).map do |item|%>
         <div class="report-item-frequency-row">
         <span class="report-item-name"><%= item.name %></span>
-        <span class="report-item-frequency"><%= item.ordering_frequency %></span>
+        <span class="report-item-frequency"><%= item.ordering_frequency_percentage %>% </span>
       </div>
       <% end %>
     </div>

@@ -25,6 +25,7 @@
 }
 .prozo-invoice-info{
     display:flex;
+    justify-content: space-between;
 }
 .prozo-invoice-item{
     list-style-type: none;

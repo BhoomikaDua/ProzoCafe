@@ -11,6 +11,7 @@
   background: #1F2739;
   border-radius: 10px;
   color: #fff;
+  margin:0;
 }
 .prozo-menu-buttons a{
   text-decoration:none;
@@ -32,7 +33,7 @@
 }
 .menu-row{
   display:flex;
-  justify-content:space-evenly;
+  justify-content:space-between;
   font-size:22px;
   font-weight:500;
   margin:15px 0;
@@ -134,4 +135,6 @@ input[type=number]::-webkit-outer-spin-button {
   border:1px solid red;
   padding:5px;
   border-radius:5px;
+  display: inline-block;
+  margin:0;
 }
