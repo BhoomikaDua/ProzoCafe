@@ -46,18 +46,38 @@ ___Deployed Link___ : [Prozo](https://prozo-cafe.herokuapp.com/ "Prozo")
 - Can Activate/Deactivate Categories
 - Out of Stock Label appears when a menu item stock is empty
 
-![Menu](/Screenshots/Edit.bmp)
+![Edit Menu](/Screenshots/Edit.bmp)
 
 ### Invoices Page
+##### Customers
+- Can view all their own Order histroy
+- Can look at the status of each order and delivery date for fulfilled orders
+##### Clerk
+- Can view all orders - fulfilled orders and pending orders
+- can toggle order status
+##### Admin/Owner
+- Can view all orders - fulfilled orders and pending orders
+- can toggle order status
+- Can view full invoice info
 
-![Homepage](/Screenshots/Orders.bmp)
+![Invoice](/Screenshots/Orders.bmp)
 
 ### Report Page
 
 Accessible to **Admin** Only
 
-![Homepage](/Screenshots/Report1.bmp)
+##### Admin/Owner
+- Can see invoices between a particular date range
 
-![Homepage](/Screenshots/Report2.bmp)
+![Report](/Screenshots/Report1.bmp)
 
-![Homepage](/Screenshots/Report3.bmp)
+##### Admin/Owner
+- Can access most ordered items
+- Can access types of order Report
+
+![Report](/Screenshots/Report2.bmp)
+
+##### Admin/Owner
+- Can access Earnings Summary
+
+![Report](/Screenshots/Report3.bmp)
