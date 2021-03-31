@@ -21,10 +21,8 @@ ___Deployed Link___ : [Prozo](https://prozo-cafe.herokuapp.com/ "Prozo")
 
 ##### Customers
 - can Login and Register as a Customer
-
 ##### Clerk
 - can Login but cannot Register as a Clerk
-
 ##### Admin/Owner
 - can Login as Admin
 - can Register other **clerks and admins only**
