@@ -18,7 +18,7 @@ class InvoicesController < ApplicationController
 
   def create
     if(!session[:current_user_id])
-      #If User not Logged in
+      #If User is not Logged in
       flash[:error] = "Please Login To Place an Order."
       redirect_to new_sessions_path
     elsif(session[:current_user_id] && session[:current_cart_invoice_id])
@@ -50,7 +50,7 @@ class InvoicesController < ApplicationController
       new_cart = Invoice.createInvoice(current_user)
       if new_cart.save
         session[:current_cart_invoice_id] = new_cart.id
-        #Adding item after creating an invoice
+        #Adding item after creating an invoice - recursive call
         create
       else
         flash[:error] = "Unable to process your order, Please Try Again!"
