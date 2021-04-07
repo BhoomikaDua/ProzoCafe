@@ -15,4 +15,8 @@ class User < ApplicationRecord
     )
     new_user
   end
+
+  def customer?
+    role == "customer"
+  end
 end

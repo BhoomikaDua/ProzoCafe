@@ -26,7 +26,7 @@
 
           <%= link_to "Menu", {:action=>"index", :controller=>"categories"}, class:"prozo-link" %>
 
-          <% if(session[:current_cart_invoice_id]) %>
+          <% if(session[:current_user_id]) %>
             <%= link_to "Orders", {:action=>"index", :controller=>"invoices"}, class:"prozo-link" %>
           <% end %>
 

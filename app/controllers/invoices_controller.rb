@@ -2,7 +2,7 @@ class InvoicesController < ApplicationController
 
   def index
     @current_user = current_user
-    if(@current_user && @current_user.role == "customer")
+    if(@current_user && @current_user.customer?)
       @invoices = Invoice.where(user_id: @current_user.id, in_cart: false)
     else
       @invoices = Invoice.where(in_cart: false)
