@@ -25,7 +25,10 @@
       <span class="prozo-links">
 
           <%= link_to "Menu", {:action=>"index", :controller=>"categories"}, class:"prozo-link" %>
-          <%= link_to "Orders", {:action=>"index", :controller=>"invoices"}, class:"prozo-link" %>
+
+          <% if(session[:current_cart_invoice_id]) %>
+            <%= link_to "Orders", {:action=>"index", :controller=>"invoices"}, class:"prozo-link" %>
+          <% end %>
 
           <% if(session[:current_user_id] && User.find(session[:current_user_id]).role == "admin" ) %>
             <%= link_to "Report", {:action=>"index", :controller=>"report"}, class:"prozo-link" %>
