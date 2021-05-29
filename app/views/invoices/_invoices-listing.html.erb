@@ -42,6 +42,9 @@
             <span class="prozo-invoice-user-details-info"><%= invoice_user.name.capitalize %></span>
           </span>
         </div>
+      <% end %>
+
+      <% if( @current_user && @current_user.role == "admin" && invoice.online_order)%>
         <div class="prozo-invoice-user-details">
           <span class="prozo-invoice-user-details-section">
             <span class="prozo-invoice-user-details-label">Address: </span>

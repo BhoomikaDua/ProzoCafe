@@ -34,16 +34,7 @@
 
   <section class="prozo-report-section">
     <h1 class="prozo-section-title">Types of Orders</h1>
-    <div class="prozo-report-order-type-wrapper">
-      <div class="report-item-type-row">
-        <span class="report-order-type">Online</span>
-        <span class="report-order-type-frequency"><%= Invoice.where(online_order: true, in_cart: false).count %></span>
-      </div>
-      <div class="report-item-type-row">
-        <span class="report-order-type">Walk-in</span>
-        <span class="report-order-type-frequency"><%= Invoice.where(online_order: false, in_cart: false).count %></span>
-      </div>
-    </div>
+    <div id="piechart"></div>
   </section>
 
   <section class="prozo-report-section">
@@ -66,3 +57,26 @@
 
 
 </div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  // Load google charts
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  // Draw the chart and set the chart values
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+    ['Type', 'Frequency'],
+    ['Online Orders', <%= Invoice.where(online_order: true, in_cart: false).count %>],
+    ['Walk-in Orders', <%= Invoice.where(online_order: false, in_cart: false).count  %>]
+  ]);
+
+    // Optional; add a title and set the width and height of the chart
+    var options = {'height':600,  pieHole: 0.4};
+
+    // Display the chart inside the <div> element with id="piechart"
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    chart.draw(data, options);
+  }
+</script>
