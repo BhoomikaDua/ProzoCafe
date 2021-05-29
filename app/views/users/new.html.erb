@@ -26,6 +26,16 @@
     </div>
 
     <div class="user-form-input-section">
+      <p class="user-form-input-label">Address:</p>
+      <%= form.text_area :address, class: "user-form-input", class:"user-form-text-area" %>
+    </div>
+
+    <div class="user-form-input-section">
+      <p class="user-form-input-label">Phone Number:</p>
+      <%= form.telephone_field :phone, class: "user-form-input" %>
+    </div>
+
+    <div class="user-form-input-section">
       <p class="user-form-input-label">Password:</p>
       <%= form.password_field :password, class: "user-form-input" %>
     </div>

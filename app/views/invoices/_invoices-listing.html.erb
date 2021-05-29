@@ -42,5 +42,15 @@
             <span class="prozo-invoice-user-details-info"><%= invoice_user.name.capitalize %></span>
           </span>
         </div>
+        <div class="prozo-invoice-user-details">
+          <span class="prozo-invoice-user-details-section">
+            <span class="prozo-invoice-user-details-label">Address: </span>
+            <span class="prozo-invoice-user-details-info"><%= invoice_user.address %></span>
+          </span>
+          <span class="prozo-invoice-user-details-section">
+            <span class="prozo-invoice-user-details-label">Phone: </span>
+            <span class="prozo-invoice-user-details-info"><%= invoice_user.phone %></span>
+          </span>
+        </div>
       <% end %>
     </div>

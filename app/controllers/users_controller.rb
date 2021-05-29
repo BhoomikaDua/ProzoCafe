@@ -8,7 +8,14 @@ class UsersController < ApplicationController
 
   def create
     @current_user = current_user
-    new_user = User.createNewUser(params[:name], params[:role], params[:email], params[:password])
+
+    if(params[:phone].length != 10)
+      flash[:error] = "Invalid Phone Number!"
+      redirect_to new_user_path
+      return
+    end
+
+    new_user = User.createNewUser(params[:name], params[:role], params[:email], params[:password], params[:phone], params[:address])
     if new_user.save
       if(new_user.role == "customer")
         session[:current_user_id] = new_user.id
@@ -19,5 +26,4 @@ class UsersController < ApplicationController
       redirect_to new_user_path
     end
   end
-
 end

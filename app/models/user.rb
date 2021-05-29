@@ -6,12 +6,14 @@ class User < ApplicationRecord
   validates :role ,presence: true
   has_many  :invoices
 
-  def self.createNewUser(name, role, email, password)
+  def self.createNewUser(name, role, email, password, phone, address)
     new_user = User.new(
       name: name,
       role: role,
       email:email,
-      password:password
+      password:password,
+      phone:phone,
+      address:address
     )
     new_user
   end
