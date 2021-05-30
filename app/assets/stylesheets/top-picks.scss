@@ -42,9 +42,8 @@ $font: 'Lato', sans-serif;
   }
 
   .alert {
-    font-weight: 700;
-    letter-spacing: 5px;
-    font-size: 30px;
+    font-weight: 400;
+    font-size: 18px;
     margin:0;
   }
 
@@ -61,7 +60,7 @@ $font: 'Lato', sans-serif;
   }
 
   #success-box {
-    height: 280px;
+    height: 250px;
     width:19%;
     left: 12%;
     background: linear-gradient(to bottom right, $success 40%, $secondary 100%);
