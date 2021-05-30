@@ -60,7 +60,7 @@ $font: 'Lato', sans-serif;
   }
 
   #success-box {
-    height: 250px;
+    height: 230px;
     width:19%;
     left: 12%;
     background: linear-gradient(to bottom right, $success 40%, $secondary 100%);
@@ -218,11 +218,17 @@ $font: 'Lato', sans-serif;
 
   }
 
+  .add-to-cart-button{
+    display:block;
+    margin-top: 10px;
+  }
+
   .menu-add-to-cart{
     position: absolute;
-    top:15%;
-    left:30px;
     display: block;
+    height:70px;
+    left:22%;
+    top:12%
   }
 
   @keyframes bounce {
