@@ -1,0 +1,44 @@
+<div class="prozo-top-picks">
+ <h1>Our Customer's Favourite Choices!</h1>
+ <div class="prozo-top-picks-panel">
+  <% MenuItem.all.order("ordering_frequency DESC").where('stock > 0').limit(5).map do |item|%>
+    <% itemInCart =  OrderItem.itemInCart(session[:current_cart_invoice_id], item.id) %>
+      <div id="success-box">
+          <div class="dot"></div>
+          <div class="dot two"></div>
+          <div class="face">
+            <div class="eye"></div>
+            <div class="eye right"></div>
+            <div class="mouth happy"></div>
+          </div>
+          <div class="shadow scale"></div>
+          <div class="message"><h1 class="alert"><%= item.name %></h1><p>Rs. <%= item.price %></p></div>
+          <span class="menu-add-to-cart">
+            <% if(itemInCart) %>
+              <%= form_with(url: "orderitems/#{item.id}", method: "put", class:"alter-items-remove") do %>
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                <div class="value-button" id="decrease" value="Decrease Value" onclick="this.parentNode.submit();" >-</div>
+                <%= hidden_field_tag(:itemAction, "remove") %>
+              <% end %>
+                <input type="number" id="number" value="<%= itemInCart.items_purchased %>" disabled />
+              <%= form_with(url: "orderitems/#{item.id}", method: "put", class:"alter-items-add") do %>
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                <div class="value-button" id="increase"  value="Increase Value" onclick="this.parentNode.submit();" >+</div>
+                <%= hidden_field_tag(:itemAction, "add") %>
+              <% end %>
+            <% else %>
+              <% if(item.stock == 0)%>
+                <p class="out-of-stock-label"> Out Of Stock</p>
+              <% else %>
+                <%= link_to "ADD TO CART", {:action=>"create", :controller=>"invoices", :id=>item.id, authenticity_token: form_authenticity_token},method: "post", class:"add-to-cart-button" %>
+              <% end %>
+            <% end %>
+
+            <% if( @current_user && @current_user.role == "admin") %>
+              <%= link_to "EDIT", {:action=>"edit", :controller=>"menuitems", :id=>item.id, authenticity_token: form_authenticity_token},method: "get", class:"edit-menu-item-button" %>
+            <% end %>
+          </span>
+        </div>
+  <% end %>
+ </div>
+</div>
