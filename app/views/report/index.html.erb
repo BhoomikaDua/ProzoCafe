@@ -92,7 +92,7 @@
   function drawStacked() {
    var dataArray = [['Item', 'Current Stock',{ role: 'style' },{ role: 'annotation' } ]];
    <% MenuItem.all.map do |item| %>
-    var color = "<%= item.stock > 5 ? "blue" : "red" %>";
+    var color = "<%= item.stock > 10 ? "blue" : "red" %>";
     var itemArray = ['', <%= item.stock %>, color,  "<%= item.name %>"];
     dataArray.push(itemArray);
    <% end %>
