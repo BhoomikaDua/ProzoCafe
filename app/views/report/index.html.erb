@@ -55,6 +55,11 @@
     </div>
   </section>
 
+   <section class="prozo-report-section">
+    <h1 class="prozo-section-title">Menu Item Stock</h1>
+    <div id="chart_div"></div>
+  </section>
+
 
 </div>
 
@@ -64,7 +69,7 @@
   google.charts.load('current', {'packages':['corechart']});
   google.charts.setOnLoadCallback(drawChart);
 
-  // Draw the chart and set the chart values
+  //Pir Chart
   function drawChart() {
     var data = google.visualization.arrayToDataTable([
     ['Type', 'Frequency'],
@@ -79,4 +84,37 @@
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
     chart.draw(data, options);
   }
+
+  //Bar Chart
+  //google.charts.load('current', {packages: ['corechart', 'bar']});
+  google.charts.setOnLoadCallback(drawStacked);
+
+  function drawStacked() {
+   var dataArray = [['Item', 'Current Stock',{ role: 'style' },{ role: 'annotation' } ]];
+   <% MenuItem.all.map do |item| %>
+    var color = "<%= item.stock > 5 ? "blue" : "red" %>";
+    var itemArray = ['', <%= item.stock %>, color,  "<%= item.name %>"];
+    dataArray.push(itemArray);
+   <% end %>
+   console.log(dataArray);
+   var data = google.visualization.arrayToDataTable(dataArray);
+   var options = {
+     title: 'Real-Time Stock of the Menu Items',
+     chartArea: {width: '90%'},
+     isStacked: true,
+     hAxis: {
+       title: 'Current Stock',
+       minValue: 0,
+     },
+     vAxis: {
+       title: 'Menu Items'
+     },
+     height: 400,
+     bar: {groupWidth: "95%"},
+     legend: { position: "none" },
+   };
+   var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+   chart.draw(data, options);
+  }
+
 </script>
