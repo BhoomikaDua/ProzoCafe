@@ -1,4 +1,6 @@
 class ReportController < ApplicationController
+  before_action :ensure_admin_logged_in
+
   def index
   end
 
@@ -22,5 +24,12 @@ class ReportController < ApplicationController
       render :template => "invoices/index"
     end
 
+  end
+
+  def ensure_admin_logged_in
+    unless current_user.isAdmin?
+      flash[:error] = "Please Login With Appropraite Credentials to Access the Page"
+      redirect_to "/"
+    end
   end
 end

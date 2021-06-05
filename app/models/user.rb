@@ -21,4 +21,9 @@ class User < ApplicationRecord
   def customer?
     role == "customer"
   end
+
+  def isAdmin?
+    role == "admin"
+  end
+
 end
