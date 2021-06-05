@@ -5,9 +5,9 @@ This is a Cafeteria Management System built on Rails and supports multiple users
 
 Role           |  Email           | Password
 -------------- | ---------------- | -------------
-Admin/Owner    | admin@admin.com  | admin
-Billing Clerk  | clerk@clerk.com  | clerk
-Customer       | suzy@suzy.com    | suzy
+Admin/Owner    | admin@admin.com  | firstname
+Billing Clerk  | clerk@clerk.com  | firstname
+Customer       | suzy@suzy.com    | firstname
 
 ___Deployed Link___ : [Prozo](https://prozo-cafe.herokuapp.com/ "Prozo")
 
